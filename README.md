@@ -32,6 +32,22 @@ The Screenshot Annotation Tool is a Python-based application designed to streaml
 
 3. **Completion Message**: Once all images are annotated, the tool will display a completion message, indicating that the annotation process is finished.
 
+## Compiling into an Executable
+
+You can compile the Python script into an executable file for easier distribution. One popular tool for this purpose is `pyinstaller`. Install it via pip:
+
+   ```
+   pip install pyinstaller
+   ```
+
+Then, navigate to the project directory in the terminal and run: pyinstaller --onefile --noconsole main.py
+
+   ```
+   pyinstaller --onefile --noconsole main.py
+   ```
+
+This command will create a standalone executable file in the `dist` directory.
+
 ## Contributing
 
 Contributions to the Screenshot Annotation Tool are welcome! Whether you encounter issues, have suggestions for improvements, or want to contribute new features, feel free to open an issue or submit a pull request. Your contributions help make this tool more robust and valuable for the community.
