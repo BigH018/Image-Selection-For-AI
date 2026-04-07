@@ -1,57 +1,87 @@
-## Introduction
+# AI Image Selection Tool
+### By BigH
 
-The Screenshot Annotation Tool is a Python-based application designed to streamline the process of categorizing screenshots. Whether you're working on computer vision projects, game development, or any other field requiring image classification, this tool provides a user-friendly interface to annotate images efficiently.
+A desktop application for rapidly annotating screenshots into labelled categories for AI training datasets. Built with Python and PyQt5, it provides a clean dark-themed interface to sort images into **Enemy Present** and **No Enemy Present** folders with a single click.
+
+---
 
 ## Features
 
-- **User-friendly Interface**: The tool offers an intuitive interface that makes annotating images a breeze, even for users with minimal technical expertise.
+- **Dark UI** — clean, modern dark theme that's easy on the eyes during long annotation sessions
+- **Fast annotation** — one click per image, automatically moves it to the correct folder
+- **Progress counter** — always shows how many images remain
+- **Directory browser** — pick source and destination folders through a GUI, no path typing needed
+- **Built-in guide** — step-by-step how-to accessible directly from the main window
+- **Image filtering** — only processes actual image files (`.png`, `.jpg`, `.jpeg`, `.bmp`, `.gif`, `.tiff`, `.webp`)
 
-- **Directory Selection**: Easily select directories for storing screenshots and annotated images within the tool, simplifying the organization of your image data.
+---
 
-- **Annotation with Ease**: With just a simple button click, users can annotate each screenshot as either "enemy present" or "no enemy present," allowing for quick and accurate classification.
+## Project Structure
 
-- **Visual Image Display**: Visualize images directly within the tool interface, facilitating easy annotation and ensuring accurate classification.
+```
+Image-Selection-For-AI/
+├── main.py          # Entry point — launches the app
+├── ui.py            # All PyQt5 windows and widgets
+├── logic.py         # File operations (move, list images)
+├── requirements.txt
+└── screenshots/
+    └── image.png    # Tool preview
+```
 
-- **Explanation Guide**: For users unfamiliar with the tool, a built-in explanation guide provides step-by-step instructions on how to use the tool effectively.
+---
 
-## Setup
+## Requirements
 
-1. **Clone the Repository**: Start by cloning the repository to your local machine using Git.
+- Python 3.8+
+- PyQt5
+- Pillow
 
-2. **Python Installation**: Ensure you have Python installed on your system, preferably version 3.6 or higher.
+---
 
-3. **Install Dependencies**: Use pip to install the required dependencies. This tool relies on the Pillow library for image processing:
+## Installation
 
-4. **Run the Application**: Execute the `main.py` file to launch the tool and begin annotating your screenshots.
+**1. Clone the repo**
+```bash
+git clone https://github.com/BigH018/Image-Selection-For-AI.git
+cd Image-Selection-For-AI
+```
+
+**2. Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+**3. Run the app**
+```bash
+python main.py
+```
+
+---
 
 ## Usage
 
-1. **Select Directories**: Upon launching the tool, choose directories for your screenshots, images with enemies, and images without enemies. This step ensures proper organization of your annotated images.
+1. **Launch** — run `main.py`
+2. **Select folders** — choose your screenshot source folder and two destination folders (enemy / no enemy)
+3. **Annotate** — for each image click either:
+   - `Enemy Present` — image is moved to the enemy folder
+   - `No Enemy Present` — image is moved to the no enemy folder
+4. **Done** — a completion message appears once all images are processed
 
-2. **Annotate Images**: Follow the on-screen instructions to annotate each screenshot. Click either "Enemy Present" or "No Enemy Present" based on the content of the image.
+---
 
-3. **Completion Message**: Once all images are annotated, the tool will display a completion message, indicating that the annotation process is finished.
+## Building an Executable
 
-## Compiling into an Executable
+To distribute the tool without requiring Python:
 
-You can compile the Python script into an executable file for easier distribution. One popular tool for this purpose is `pyinstaller`. Install it via pip:
+```bash
+pip install pyinstaller
+pyinstaller --onefile --noconsole main.py
+```
 
-   ```
-   pip install pyinstaller
-   ```
+The standalone `.exe` will be output to the `dist/` folder.
 
-Then, navigate to the project directory in the terminal and run: pyinstaller --onefile --noconsole main.py
+---
 
-   ```
-   pyinstaller --onefile --noconsole main.py
-   ```
+## Screenshot
 
-This command will create a standalone executable file in the `dist` directory.
-
-## Contributing
-
-Contributions to the Screenshot Annotation Tool are welcome! Whether you encounter issues, have suggestions for improvements, or want to contribute new features, feel free to open an issue or submit a pull request. Your contributions help make this tool more robust and valuable for the community.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE), allowing for both personal and commercial use. Feel free to modify and distribute the tool according to your needs, while ensuring compliance with the license terms.
+![AI Image Selection Tool](screenshots/image.png)
